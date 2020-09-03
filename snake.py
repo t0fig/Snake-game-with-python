@@ -21,9 +21,9 @@ difficulty = 25
 frame_size_x = 720
 frame_size_y = 480
 
-#icon = pygame.image.load('Snake-icon.png')
+icon = pygame.image.load("Snake-icon.png")
+pygame.display.set_icon(icon)
 
-# pygame.display.set_icon(icon)
 
 # Checks for errors encountered
 check_errors = pygame.init()
