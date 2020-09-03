@@ -3,7 +3,10 @@ Snake Eater
 Made with PyGame
 """
 
-import pygame, sys, time, random
+import pygame
+import sys
+import time
+import random
 
 
 # Difficulty settings
@@ -18,16 +21,17 @@ difficulty = 25
 frame_size_x = 720
 frame_size_y = 480
 
-icon = pygame.image.load('Snake-icon.png')
+#icon = pygame.image.load('Snake-icon.png')
 
-pygame.display.set_icon(icon)
+# pygame.display.set_icon(icon)
 
 # Checks for errors encountered
 check_errors = pygame.init()
 # pygame.init() example output -> (6, 0)
 # second number in tuple gives number of errors
 if check_errors[1] > 0:
-    print(f'[!] Had {check_errors[1]} errors when initialising game, exiting...')
+    print(
+        f'[!] Had {check_errors[1]} errors when initialising game, exiting...')
     sys.exit(-1)
 else:
     print('[+] Game successfully initialised')
@@ -56,7 +60,8 @@ fps_controller = pygame.time.Clock()
 snake_pos = [100, 50]
 snake_body = [[100, 50], [100-10, 50], [100-(2*10), 50]]
 
-food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
+food_pos = [random.randrange(1, (frame_size_x//10))
+            * 10, random.randrange(1, (frame_size_y//10)) * 10]
 food_spawn = True
 
 direction = 'RIGHT'
@@ -144,7 +149,8 @@ while True:
 
     # Spawning food on the screen
     if not food_spawn:
-        food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
+        food_pos = [random.randrange(
+            1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
     food_spawn = True
 
     # GFX
@@ -154,10 +160,12 @@ while True:
         # Snake body
         # .draw.rect(play_surface, color, xy-coordinate)
         # xy-coordinate -> .Rect(x, y, size_x, size_y)
-        pygame.draw.rect(game_window, red_light, pygame.Rect(pos[0], pos[1], 10, 10))
+        pygame.draw.rect(game_window, red_light,
+                         pygame.Rect(pos[0], pos[1], 10, 10))
 
     # Snake food
-    pygame.draw.rect(game_window, red, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
+    pygame.draw.rect(game_window, red, pygame.Rect(
+        food_pos[0], food_pos[1], 10, 10))
 
     # Game Over conditions
     # Getting out of bounds
